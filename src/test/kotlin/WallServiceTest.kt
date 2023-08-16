@@ -1,5 +1,4 @@
-import junit.framework.TestCase.assertFalse
-import junit.framework.TestCase.assertTrue
+import junit.framework.TestCase.*
 import org.junit.Test
 
 class WallServiceTest {
@@ -7,7 +6,7 @@ class WallServiceTest {
     @Test
     fun addPost() {
         val post = WallService.add(Post(1, "Hi"))
-        assertTrue(post.id == 1)
+        assertEquals(1, post.id)
     }
 
     @Test
