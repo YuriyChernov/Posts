@@ -1,13 +1,21 @@
 import junit.framework.TestCase.*
-import org.junit.Assert.assertNotEquals
+import org.junit.Before
 import org.junit.Test
 
 class WallServiceTest {
 
+    @Before
+    fun clear() {
+        WallService.clear()
+    }
+
     @Test
     fun addPost() {
-        val post = WallService.add(Post(0, "Hi"))
-        assertNotEquals(1, post.id)
+        val service = WallService
+        val id = service.add(Post(0, "Hi"))
+        val updateId = Post(1, "Hi")
+
+        assertEquals(id, updateId)
     }
 
     @Test
