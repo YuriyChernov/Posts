@@ -1,49 +1,29 @@
 data class Post(
-    var id: Int,
-    val text: String,
-    val likes: Likes = Likes(0),
-    val comments: Comments = Comments(""),
-    val delete: CanDelete = CanDelete(true or false),
-    val date: Date = Date(0),
-    val pin: CanPin = CanPin(true or false),
-    val edit: CanEdit = CanEdit(true or false),
-    val pinned: IsPinned = IsPinned(true or false),
-    val ads: MarkAsAds = MarkAsAds(true or false),
+    var id: Int = 0,
+    val text: String = "",
+    val ownerId: Int = 0,
+    val fromId: Int = 0,
+    val createdBy: Int = 0,
+    val date: Int = 0,
     val replyOwnerId: Long? = null,
     val replyPostId: Long? = null,
-    val attachments: Attachments? = null,
-)
-
-data class Likes(
-    val count: Int
-)
-
-data class Comments(
-    val comments: String
-)
-
-data class CanDelete(
-    val delete: Boolean
-)
-
-data class Date(
-    val date: Int
-)
-
-data class CanPin(
-    val pin: Boolean
-)
-
-data class CanEdit(
-    val edit: Boolean
-)
-
-data class IsPinned(
-    val pinned: Boolean
-)
-
-data class MarkAsAds(
-    val ads: Boolean
+    val friendsOnly: Boolean = true or false,
+    val comments: Comments = Comments(),
+    val copyright: Copyright = Copyright(),
+    val likes: Likes = Likes(),
+    val reposts: Reposts = Reposts(),
+    val views: Views = Views(),
+    val postType: String = "",
+    val geo: Geo = Geo(),
+    val signerId: Int = 0,
+    val canPin: Boolean = true or false,
+    val canDelete: Boolean = true or false,
+    val canEdit: Boolean = true or false,
+    val isPinned: Boolean = true or false,
+    val markAsAds: Boolean = true or false,
+    val isFavorite: Boolean = true or false,
+    val postponedId: Boolean = true or false,
+    val attachments: List<Attachments> = emptyList(),
 )
 
 object WallService {

@@ -1,7 +1,7 @@
 data class Video(
-    var id: Int,
-    val ownerId: Int,
-    val title: String,
-    val duration: Int,
+    var id: Int = 0,
+    val ownerId: Int = 0,
+    val title: String = "",
+    val duration: Int = 0,
     val type: String = "video"
-) : Attachments
+)
