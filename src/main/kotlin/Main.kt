@@ -2,13 +2,16 @@ data class Post(
     var id: Int,
     val text: String,
     val likes: Likes = Likes(0),
-    val comments: Comments = Comments("Comments"),
+    val comments: Comments = Comments(""),
     val delete: CanDelete = CanDelete(true or false),
     val date: Date = Date(0),
     val pin: CanPin = CanPin(true or false),
     val edit: CanEdit = CanEdit(true or false),
     val pinned: IsPinned = IsPinned(true or false),
     val ads: MarkAsAds = MarkAsAds(true or false),
+    val replyOwnerId: Long? = null,
+    val replyPostId: Long? = null,
+    val attachments: Attachments? = null,
 )
 
 data class Likes(
