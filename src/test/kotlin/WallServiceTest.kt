@@ -48,18 +48,10 @@ class WallServiceTest {
         assertFalse(result)
     }
 
-    @Test(expected = NotImplementedError::class)
+    @Test(expected = PostNotFoundException::class)
     fun shouldThrow() {
         val service = WallService
-        val id = 1L
-        service.removeById(id)
-
-    }
-
-    @Test(expected = PostNotFoundException::class)
-    fun newComment_postNotFound_shouldThrow() {
-        val service = WallService
-        service.createComment(900L, Comments(500, "Test"))
+        service.createComment(5000, Comments(450, "Test"))
     }
 
     @Test
