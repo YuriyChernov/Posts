@@ -47,4 +47,32 @@ class WallServiceTest {
 
         assertFalse(result)
     }
+
+    @Test(expected = NotImplementedError::class)
+    fun shouldThrow() {
+        val service = WallService
+        val id = 1L
+        service.removeById(id)
+
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun newComment_postNotFound_shouldThrow() {
+        val service = WallService
+        service.createComment(900L, Comments(500, "Test"))
+    }
+
+    @Test
+    fun newComment_postFound_success() {
+        val service = WallService
+        service.add(
+            Post(
+                1,
+                "Hello",
+                2,
+                3,
+            )
+        )
+        service.createComment(1, Comments(500, "Test"))
+    }
 }

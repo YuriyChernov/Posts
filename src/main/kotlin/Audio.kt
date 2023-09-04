@@ -9,6 +9,6 @@ data class Audio(
     val albumId: Int = 0,
     val genreId: Int = 0,
     val date: Int = 0,
-    val noSearch: Boolean = true or false,
-    val isHq: Boolean = true or false,
+    val noSearch: Boolean = true,
+    val isHq: Boolean = true,
 )

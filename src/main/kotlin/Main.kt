@@ -1,5 +1,5 @@
 data class Post(
-    var id: Int = 0,
+    var id: Long = 0,
     val text: String = "",
     val ownerId: Int = 0,
     val fromId: Int = 0,
@@ -7,7 +7,7 @@ data class Post(
     val date: Int = 0,
     val replyOwnerId: Long? = null,
     val replyPostId: Long? = null,
-    val friendsOnly: Boolean = true or false,
+    val friendsOnly: Boolean = true,
     val comments: Comments = Comments(),
     val copyright: Copyright = Copyright(),
     val likes: Likes = Likes(),
@@ -16,23 +16,32 @@ data class Post(
     val postType: String = "",
     val geo: Geo = Geo(),
     val signerId: Int = 0,
-    val canPin: Boolean = true or false,
-    val canDelete: Boolean = true or false,
-    val canEdit: Boolean = true or false,
-    val isPinned: Boolean = true or false,
-    val markAsAds: Boolean = true or false,
-    val isFavorite: Boolean = true or false,
-    val postponedId: Boolean = true or false,
+    val canPin: Boolean = true,
+    val canDelete: Boolean = true,
+    val canEdit: Boolean = true,
+    val isPinned: Boolean = true,
+    val markAsAds: Boolean = true,
+    val isFavorite: Boolean = true,
+    val postponedId: Boolean = true,
     val attachments: List<Attachments> = emptyList(),
 )
 
 object WallService {
     private var posts = emptyArray<Post>()
-    private var lastId = 0
+    private var lastId = 0L
+    private var comments = emptyArray<Comments>()
+
+    fun createComment(postId: Long, comment: Comments): Comments {
+        posts.find { it.id == postId } ?: throw PostNotFoundException("Post $postId is not found")
+
+        comments += comment
+        return comments.last()
+    }
+
 
     fun clear() {
         posts = emptyArray()
-        lastId = 0
+        lastId = 0L
     }
 
     fun add(post: Post): Post {
@@ -55,6 +64,10 @@ object WallService {
             print(post)
             println(' ')
         }
+    }
+
+    fun removeById(id: Long) {
+
     }
 }
 
