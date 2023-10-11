@@ -1,3 +1,5 @@
+import post.*
+
 data class Post(
     var id: Long = 0,
     val text: String = "",
@@ -64,10 +66,6 @@ object WallService {
             print(post)
             println(' ')
         }
-    }
-
-    fun removeById(id: Long) {
-
     }
 }
 

@@ -1,3 +1,5 @@
+package post
+
 data class Page(
     val id: Int = 0,
     val groupId: Int = 0,

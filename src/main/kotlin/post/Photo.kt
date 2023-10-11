@@ -1,3 +1,5 @@
+package post
+
 data class Photo(
     var id: Int = 0,
     val ownerId: Int = 0,

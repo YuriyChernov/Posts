@@ -1,3 +1,5 @@
+package post
+
 data class Place(
     val id: Int = 0,
     val title: String = "",

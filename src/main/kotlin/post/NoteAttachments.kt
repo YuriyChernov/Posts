@@ -1,3 +1,5 @@
+package post
+
 data class NoteAttachments(
     val note: Note = Note(),
 ) : Attachments {

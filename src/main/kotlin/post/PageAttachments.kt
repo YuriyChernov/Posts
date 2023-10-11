@@ -1,3 +1,5 @@
+package post
+
 data class PageAttachments(
     val page: Page = Page(),
 ) : Attachments {

@@ -1,3 +1,5 @@
+package post
+
 data class PhotoAttachments(
     val photo: Photo = Photo(),
 ) : Attachments {

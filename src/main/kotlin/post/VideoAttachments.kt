@@ -1,3 +1,5 @@
+package post
+
 data class VideoAttachments(
     val video: Video = Video(),
 ) : Attachments {
